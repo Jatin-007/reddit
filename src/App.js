@@ -4,7 +4,7 @@ import Landing from './components/Landing';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <header className="App-header">
           <Landing/>
         </header>
