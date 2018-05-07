@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import Landing from './components/Landing';
+import Navigation from './components/Navigation';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        <header className="App-header">
-          <Landing/>
-        </header>
+        <Router>
+          <Navigation/>
+        </Router>
       </div>
     );
   }
