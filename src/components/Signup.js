@@ -1,13 +1,44 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-class Signup extends Component {
+import * as routes from '../constants/routes';
+
+const SignUpPage = () => {
+    <div>
+        <h1>SignUP</h1>
+        <SignUpForm/>
+    </div>
+}
+
+class SignUpForm extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    onSubmit = (event) => {
+
+    }
+    
     render () {
         return (
-            <div>
-                Signup.js
-            </div>
-        )
+            <form onSubmit = {this.onSubmit}>
+
+            </form>
+        );
     }
 }
 
+const SignUpLink = () => {
+    <p>
+        Don't have an account ?account
+        {' '}
+        <Link to={routes.SIGN_UP}>Sign Up</Link>
+    </p>
+}
+
 export default Signup;
+
+export {
+    SignUpForm,
+    SignUpLink
+}
