@@ -10,9 +10,25 @@ const SignUpPage = () => {
     </div>
 }
 
+// initializing the state
+const INITIAL_STATE = {
+    username: '',
+    password: '',
+    passwordOne: '',
+    passwordTwo: '',
+    error: null
+}
+
+// try taking the breackets off from property name
+const byPropKey = (propertyName, value) => () => ({
+    [propertyName]: value,
+});
+
 class SignUpForm extends Component {
     constructor(props) {
         super(props);
+
+        this.state = { ...INITIAL_STATE }
     }
 
     onSubmit = (event) => {
@@ -22,7 +38,33 @@ class SignUpForm extends Component {
     render () {
         return (
             <form onSubmit = {this.onSubmit}>
+                <input
+                    value={username}
+                    onChange={event => this.setState(byPropKey('username', event.target.value))}
+                    type="text"
+                    placeholder="Full Name"
+                />
+                <input
+                    value={email}
+                    onChange={event => this.setState(byPropKey('email', event.target.value))}
+                    type="text"
+                    placeholder="email"
+                />
+                <input
+                    value={passwordOne}
+                    onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
+                    type="password"
+                    placeholder="Password"
+                />
+                <input
+                    value={passwordTwo}
+                    onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
+                    type="password"
+                    placeholder="Confirm password"
+                />
+                <button type="submit">Sign up</button>
 
+                {error && <p>{error.message}</p>}
             </form>
         );
     }
